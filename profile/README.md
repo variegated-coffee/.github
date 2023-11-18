@@ -2,7 +2,7 @@
 
 Do you have a Lelit espresso machine? Are you a bit of a nerd, both of coffee and hardware? Then this might be for you.
 
-I'm creating open source hardware, firmware, and software for Lelit espresso machines. The [Open LCC main board](https://github.com/open-lcc/open-lcc-board) should (at least in theory) work on anything that has an LCC, though right now the only firmware is for the Bianca. It has an RP2040 for control, and an ESP32-S3 for Wi-fi and driving the screen (choose between a 128x64 px monochrome OLED like the original LCC, or a high-res color TFT).
+I'm creating open source hardware, firmware, and software for Lelit espresso machines. The [Open LCC main board](https://github.com/open-lcc/open-lcc-board) replaces the stock LCC board, and should (at least in theory) work on anything that has an LCC, though right now the only firmware is for the Bianca. It has an RP2040 for control, and an ESP32-S3 for Wi-fi and driving the screen (choose between a 128x64 px monochrome OLED like the original LCC, or a high-res color TFT).
 
 *Important note*
 
