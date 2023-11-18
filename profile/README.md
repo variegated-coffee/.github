@@ -28,7 +28,7 @@ In all seriousness, here are some nice features of the [RP2040](https://github.c
 I'm also working on or seriously considering the following:
 
 * Using pressure sensors and scales in routines
-* Synesso style stepped routines
+* Stepped routines (i.e. manually cycling through routine steps, like on e.g. a Synesso)
 * Upload shot profiles to Visualizer.coffee
 * Ability to trigger/cancel a heat-up
 * Steam only mode (i.e. brew boiler off)
