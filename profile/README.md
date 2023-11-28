@@ -1,6 +1,6 @@
 ## Hi there 👋
 
-[![Discord Shield](https://discordapp.com/api/guilds/1178966366523506709/widget.png?style=shield)](https://discord.com/invite/zGGkCZYd)
+[![Discord Shield](https://discordapp.com/api/guilds/1178966366523506709/widget.png?style=shield)](https://discord.gg/gn9aGHAc3U)
 
 Do you have a Lelit espresso machine? Are you a bit of a nerd, both of coffee and hardware? Then this might be for you.
 
