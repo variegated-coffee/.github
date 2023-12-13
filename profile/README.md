@@ -38,7 +38,7 @@ I'm also working on or seriously considering the following:
 
 ## Get involved
 
-Interested in getting involved? Excellent! You'll likely need to start by having some hardware manufactured. Head off to the [Open LCC main board](https://github.com/open-lcc/open-lcc-board) repo.
+Interested in getting involved? Excellent! You'll likely need to start by having some hardware manufactured. Head off to the [Open LCC main board](https://github.com/open-lcc/open-lcc-board) repo. Not ready to manufacture some hardware, but still want to chat? [Join the Discord!](https://discord.gg/gn9aGHAc3U)
 
 <!--
 
