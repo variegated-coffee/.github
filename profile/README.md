@@ -25,7 +25,7 @@ In all seriousness, here are some nice features of the [RP2040](https://github.c
 * A nice graph view where you can see your shot graph directly on the LCC screen
 * You can add additional temperature sensors; I have sensors on the E61 group inlet and the E61 group outlet (of course adding group temperature sensor is the most useful one, but A) it takes up the slot used by the pressure transducer, and B) it does not look good, given that it's wired, but it's useful to be able to swap it in occasionally)
 * Integration into Home Assistant (ESP32-S3 firmware is based on ESPHome)
-* No more fiddling with settings menus, all settings are available through HTTP or Home Aassistant
+* No more fiddling with settings menus, all settings are available through HTTP or Home Assistant
 
 I'm also working on or seriously considering the following:
 
