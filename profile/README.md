@@ -13,7 +13,7 @@ We're making open source hardware, firmware and software for espresso machines.
 
 Enjoy this lovely flow chart!
 
-[![Hardware selection flow chart](https://github.com/open-lcc/.github/blob/main/docs/flow_chart.png?raw=true)](https://github.com/open-lcc/.github/blob/main/docs/flow_chart.png?raw=true)
+[![Hardware selection flow chart](https://github.com/variegated-coffee/.github/blob/main/docs/flow_chart.png?raw=true)](https://github.com/variegated-coffee/.github/blob/main/docs/flow_chart.png?raw=true)
 
 ### Get involved
 
