@@ -7,6 +7,7 @@ We're making open source hardware, firmware and software for espresso machines.
 * [Open LCC Main Board](https://github.com/open-lcc/open-lcc-board) - A replacement for the Lelit LCC
 * [All-purpose Espresso Controller](https://github.com/open-lcc/all-purpose-espresso-controller) - A controller for any reasonably complicated espresso machine that fits in a Gicar 8.5 series enclosure
 * [All-purpose Espresso Controller HV Board](https://github.com/open-lcc/all-purpose-espresso-controller-hv-board) - A mains voltage board with relays and an AC/DC converter
+* [Gravity](https://github.com/variegated-coffee/gravity) - A scale made for integration - by wire or without
 * [FG Filter Board](https://github.com/open-lcc/fg-filter) - A board allowing a Fluid-o-Tech FG200/300/400 series Gear Pump to be controlled by PWM
 
 ### What board do I need?
