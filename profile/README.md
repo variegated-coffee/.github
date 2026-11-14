@@ -2,26 +2,69 @@
 
 [![Discord Shield](https://discordapp.com/api/guilds/1178966366523506709/widget.png?style=shield)](https://discord.gg/gn9aGHAc3U)
 
-We're making open source hardware, firmware and software for espresso machines.
+We're making open source hardware, firmware and software for espresso machines.                                                                                
 
 ## Active projects
 
-* [APEC SoM](https://github.com/variegated-coffee/apec-som) - Short for All-Purpose Espresso Controller - System on Module - a module containing pretty much everything you need to build a modern espresso machine controller
-* [APEC Carrier for LM GS3](https://github.com/variegated-coffee/apec-carrier-lm-gs3) - An APEC SoM Carrier board designed for a La Marzocco GS3, compatible with gear pumps, pressure sensors, proportional solenoids, load cells and more
-* [APEC LM GS3 HMI module](https://github.com/variegated-coffee/apec-lm-gs3-hmi-module) - A replacement for the stock buttons and display of the La Marzocco GS3 with a nice big TFT and RGB LEDs
+* [APEC SoM](https://github.com/variegated-coffee/apec-som) - Short for All-Purpose Espresso Controller - System on Module - a module containing pretty much everything you need
+to build a modern espresso machine controller
+* [APEC Carrier for LM GS3](https://github.com/variegated-coffee/apec-carrier-lm-gs3) - An APEC SoM Carrier board designed for a La Marzocco GS3, compatible with gear pumps,
+pressure sensors, proportional solenoids, load cells and more
+* [APEC LM GS3 HMI module](https://github.com/variegated-coffee/apec-lm-gs3-hmi-module) - A replacement for the stock buttons and display of the La Marzocco GS3 with a nice big
+TFT and RGB LEDs
 * [Femtoprobe](https://github.com/variegated-coffee/femtoprobe) - An ultra-compact SWD and UART debug probe designed for ease of integration with the APEC SoM.
 * [Open LCC Main Board](https://github.com/open-lcc/open-lcc-board) - A replacement for the Lelit LCC
 * [Gravity](https://github.com/variegated-coffee/gravity) - A scale made for integration - by wire or without
 
-### What board do I need?
-
-Enjoy this lovely flow chart!
-
-[![Hardware selection flow chart](https://github.com/variegated-coffee/.github/blob/main/docs/flow_chart.png?raw=true)](https://github.com/variegated-coffee/.github/blob/main/docs/flow_chart.png?raw=true)
-
 ### Get involved
 
 Interested in getting involved? Excellent! The best way to get acquianted with the project at the moment is to [join the Discord!](https://discord.gg/gn9aGHAc3U)
+
+### APEC SoM
+
+Want to build a controller for an espresso machine, but would rather not start from a blank schematic? Then this might be for you.
+
+The [APEC SoM](https://github.com/variegated-coffee/apec-som) puts the hard parts of an espresso machine controller on one small module: a 104-pin castellated board on a 1.27 mm
+pitch. It's meant to sit on a machine-specific carrier board, which holds the connectors, FETs and passives that suit that machine. The SoM does the rest.
+
+#### What's on it?
+
+* An RP2350B microcontroller with 8 MB of program flash, 8 MB of settings flash and 8 MB of PSRAM
+* An ESP32-C6 for Wi-Fi, Bluetooth, Zigbee and Thread (U.FL connector, so bring your own antenna)
+* A TI ADS124S08 24-bit ADC for RTDs, pressure transducers and other precision analog inputs
+* A TI FDC1004 capacitance-to-digital converter for level sensing in tanks and boilers
+* A 4-port USB 2.0 hub. The RP2350B and the ESP32-C6 get one port each, and the other two are free for the carrier. Put a
+[Femtoprobe](https://github.com/variegated-coffee/femtoprobe) on one of them, and a single USB cable gives you both microcontrollers, the ESP32's serial console and an SWD
+debugger for the RP2350
+* Its own power supplies: feed it 6–17 V and it makes 3.3 V, 5 V, a separate quiet 5 V rail for analog circuits, and a 6 V rail
+* The ESP32-C6 can reset the RP2350, put it in its USB bootloader, or load code into it over the RP2350's UART boot interface
+
+The KiCad symbol and footprints for carrier boards are included, in SMD, through-hole, SMD+THT and FlexyPin variants, under the same permissive licence as the rest of the design.
+The [engineering notes](https://github.com/variegated-coffee/apec-som/blob/main/ENGINEERING-NOTES.md) cover what a carrier designer or firmware author needs to know.
+
+### APEC Carrier for LM GS3
+
+Do you have a La Marzocco GS3? Would you like to give it a gear pump, proportional solenoids or load cells, and run all of it on your own firmware? Or do you just have a broken control board, and want other options than to buy a new stock board? Then this might be for you.
+
+The [APEC Carrier for LM GS3](https://github.com/variegated-coffee/apec-carrier-lm-gs3) replaces the GS3's control board. It fits the machine's existing mains, sensor and actuator wiring, and an APEC SoM provides the brains. Pair it with the [APEC LM GS3 HMI module](https://github.com/variegated-coffee/apec-lm-gs3-hmi-module) for a big TFT and RGB-lit buttons in the original display housing.
+
+*Important note*
+This board switches line voltage, and it goes inside a machine full of pressurised hot water and steam. Anything you do with it, you do at your own risk. It isn't a safety component: the machine's thermal cutouts, pressure relief and fuses must stay in place and work independently of it. It hasn't been tested or certified by anybody, and the project isn't affiliated with or endorsed by La Marzocco.
+
+#### What's on it?
+
+* The mains side, on a 13-position terminal block: relays for the group, fill and tea solenoids, a 16 A relay for the stock rotary pump, an on-board fuse, varistors on every
+switched output, and a 12 V, 10 W AC/DC module for the low-voltage side
+* SSR control outputs for the brew and service boilers
+* An isolated 24 V section, fed from an external 24 V supply, with two outputs for proportional solenoids (steam and hot water) and a connector for an FG304 gear pump with speed, direction and tacho signals
+* Two RTD inputs (PT1000, ratiometric) and two pressure transducer inputs (0.5–4.5 V), on the SoM's 24-bit ADC
+* Two load cell inputs on a dedicated 24-bit ADC (NAU7802), so a scale can live inside the machine
+* Capacitive level sensing for the tank and the boiler, plus inputs for a flow meter, the paddle switch and a potentiometer
+* Display connectors for EyeSPI: an 18-pin FFC connector and a 2×10 IDC header (EyeDC-SPI)
+* Two Qwiic connectors, an RTC with a backup battery and a microSD slot
+* A UART connector that's pin compatible with the LM IoT module (not that you'd necessarily need one)
+* USB-C for programming and debugging. The board runs from USB alone, so you can develop on the bench without mains
+* An SWD header, a Femtoprobe footprint, and status LEDs for every output and power rail
 
 ### Open LCC Main Board
 
@@ -58,26 +101,3 @@ We're also working on or seriously considering the following:
 * Ability to trigger/cancel a heat-up
 * Steam only mode (i.e. brew boiler off)
 * Standby mode (i.e. both boilers off, but controller on, not to be confused with Bianca V3 standby mode, since this mode is actually useful)
-
-### All-purpose espresso controller
-
-Do you have an espresso machine that's not from Lelit? Or do you have a Lelit machine but want to get in to some really exciting things, like gear pumps? Then the All-purpose Espresso Controller is (or rather will be) for you. 
-
-This is a preliminary list of features:
-
-* RP2040 MCU with 2 MB of QSPI program flash, and 2 MB of SPI settings flash
-* ESP32-S3 MCU with 16 MB Flash and 8 MB PSRAM
-* 12V, 5V, 5VA and 3V3 power domains, with TPS82130 buck converters for 5V and 3V3 (allowing up to 3A), and a TC2015-5.0 LDO for the 5VA power domain
-* HMI device connector (compatible with both Open LCC and Nextion displays) with UART, one controllable 12V pin, one controllable 5/3.3 V pin, and one 5/3.3V supply pin
-* 9x drain-to-ground N-ch MOSFETs supporting (for controlling things like SSRs)
-* 4x P-ch MOSFET controlled 5V or 12V outputs (for things that need an actual 5V / 12V control signal)
-* ADS124S08 12 channel 24-bit ΔΣ ADC with RC filters, usable for thermocouples, NTC thermistors, RTDs etc, as well as analog sensors such as pressure transducers.
-* FDC1004 4 channel capacitance-to-digital converter, with all channels exposed. Useful for liquid level sensing.
-* 13x 3V3 GPIOs, 2 of which can be configured as 3V3/5V outputs instead.
-* QWIIC connectors for both RP2040 and ESP32-S3 for further expansion
-* EyeSPI connector connected to ESP32-S3 for further expansion
-* SD Card slot connected to the RP2040 for additional storage
-* RP2040 USB programming interface and SWD debug header
-* ESP32-S3 USB programming interface, JTAG debug header and ESP-DEBUG compatible UART header
-
-The All-Purpose Espresso Controller isn't ready for prime time yet, but you should absolutely take a [look at the repository](https://github.com/open-lcc/all-purpose-espresso-controller), and [join the Discord](https://discord.gg/gn9aGHAc3U) if you're interested!
