@@ -4,11 +4,14 @@
 
 We're making open source hardware, firmware and software for espresso machines.
 
+## Active projects
+
+* [APEC SoM](https://github.com/variegated-coffee/apec-som) - Short for All-Purpose Espresso Controller - System on Module - a module containing pretty much everything you need to build a modern espresso machine controller
+* [APEC Carrier for LM GS3](https://github.com/variegated-coffee/apec-carrier-lm-gs3) - An APEC SoM Carrier board designed for a La Marzocco GS3, compatible with gear pumps, pressure sensors, proportional solenoids, load cells and more
+* [APEC LM GS3 HMI module](https://github.com/variegated-coffee/apec-lm-gs3-hmi-module) - A replacement for the stock buttons and display of the La Marzocco GS3 with a nice big TFT and RGB LEDs
+* [Femtoprobe](https://github.com/variegated-coffee/femtoprobe) - An ultra-compact SWD and UART debug probe designed for ease of integration with the APEC SoM.
 * [Open LCC Main Board](https://github.com/open-lcc/open-lcc-board) - A replacement for the Lelit LCC
-* [All-purpose Espresso Controller](https://github.com/open-lcc/all-purpose-espresso-controller) - A controller for any reasonably complicated espresso machine that fits in a Gicar 8.5 series enclosure
-* [All-purpose Espresso Controller HV Board](https://github.com/open-lcc/all-purpose-espresso-controller-hv-board) - A mains voltage board with relays and an AC/DC converter
 * [Gravity](https://github.com/variegated-coffee/gravity) - A scale made for integration - by wire or without
-* [FG Filter Board](https://github.com/open-lcc/fg-filter) - A board allowing a Fluid-o-Tech FG200/300/400 series Gear Pump to be controlled by PWM
 
 ### What board do I need?
 
